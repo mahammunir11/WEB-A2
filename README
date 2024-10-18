@@ -1,0 +1,19 @@
+# Weather Dashboard
+
+A Weather Dashboard application built using JavaScript, HTML, CSS, and Chart.js to visualize weather data with dynamic and animated charts. The dashboard displays temperature trends over a period, provides current weather information, and supports Celsius and Fahrenheit unit conversions. It also provides chatbot to ask weather and nonweather related queries.
+
+## Features
+
+- Dynamic line chart to display temperature trends using Chart.js
+- Delay animation effect on vertical bar chart and doughnut chart for engaging visual representation
+- Drop animation effect on line chart for engaging visual representation
+- Responsive and mobile-friendly design
+- Option to toggle between Celsius and Fahrenheit temperature units
+- Fetches real-time weather data from a weather API
+
+## Technologies Used
+
+- **HTML5 , CSS3 , JavaScript (ES6+) , Chart.js , Weather API , Gemini API**
+
+## Instructions to Run
+- Just run index.html file

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard with Chatbot</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="side-menu">
+        <div class="logo">
+            <img src="./logo.png" alt="Logo" style="width: 150px; height: auto; display: block; margin: 0 auto;">
+        </div>
+        <div class="menu-item" onclick="showDashboard()">Dashboard</div>
+        <div class="menu-item" onclick="showTables()">Forecast Table</div>
+    </div>
+    <div class="main-content">
+        <div id="dashboard">
+            <h1>Weather Dashboard</h1>
+            <div class="search-container">
+                <input type="text" id="cityInput" placeholder="Enter city name">
+                <button onclick="getWeather()">Get Weather</button>
+            </div>
+            <div class="unit-toggle">
+                <label for="unitToggle">°C</label>
+                <input type="checkbox" id="unitToggle" onchange="toggleUnit()">
+                <label for="unitToggle">°F</label>
+            </div>
+            <button onclick="getLocationWeather()">Use My Location</button>
+            <div class="loading-spinner" id="loadingSpinner" style="display: none;"></div>
+            <div class="weather-widget" id="weatherWidget"></div>
+            <div class="charts-container">
+                <div class="chart">
+                    <canvas id="tempChart"></canvas>
+                </div>
+                <div class="chart">
+                    <canvas id="conditionChart"></canvas>
+                </div>
+                <div class="chart">
+                    <canvas id="tempLineChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div id="tables" style="display: none;">
+            <h1>Weather Forecast Table</h1>
+            <div class="filter-buttons">
+                <button onclick="sortTemperaturesAscending()">Sort Temps Ascending</button>
+                <button onclick="sortTemperaturesDescending()">Sort Temps Descending</button>
+                <button onclick="filterRainyDays()">Show Rainy Days</button>
+                <button onclick="showHighestTemperatureDay()">Highest Temp Day</button>
+            </div>
+            <div class="table-container">
+                <table id="forecastTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Temperature</th>
+                            <th>Condition</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </div>
+    </div>
+    <div class="chat-widget" onclick="openChat()">
+        <svg class="chat-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+        </svg>
+        <div class="chatbot">
+            <div class="chat-header" onclick="closeChat(event)">Weather Assistant</div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ask about weather...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
